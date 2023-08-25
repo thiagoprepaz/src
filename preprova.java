@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class preprova {
     public static void main(String[] args) {
         int[] lista = { 5, 3, 8, 4, 2 };
-        bubbleSort(lista);
+        insertionSort1(lista);
         System.out.println(Arrays.toString(lista));
     }
 
@@ -32,4 +32,18 @@ public class preprova {
             }
         }
     }
+     public static void insertionSort1(int[] lista) {
+        int n = lista.length;
+        int i = 1;
+        while(i<n){
+            int j = i - 1;
+            while(j>=0  && lista[j]>lista[j+1]){ // aux is igual to j+1, the same of i
+                int aux = lista[j+1];
+                lista[j+1] = lista[j];
+                lista[j] = aux;
+                j--;
+            }
+            i++;
+        }
+    }    
 }
