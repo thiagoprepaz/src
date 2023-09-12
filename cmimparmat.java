@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class cmimparmat {
     /*
      * 2.Função para somar números pares ou ímpares em uma matriz: dê
@@ -13,11 +14,13 @@ public class cmimparmat {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int numCols, numRows;
+        int numCols, numRows, aux;
+        int pares[] = new int[50];
+        Boolean op;
 
         System.out.println("What is the cols lenght?");
         numCols = input.nextInt(); // read the vector length
-        
+
         System.out.println("What is the rows lenght?");
         numRows = input.nextInt(); // read the vector length
 
@@ -40,15 +43,33 @@ public class cmimparmat {
             System.out.println();
         }
 
-        // Não se esqueça de fechar o Scanner quando não for mais necessário
+        System.out.println("Digite 1 para somar os numeros pares e 2 para somar os numeros impares");
+        aux = input.nextInt(); // read te type of operation
+        if (aux == 1)
+            op = true;
+        else
+            op = false;
+
+        // somar os numeros pares
+        int smt=0;
+        if (op == true) {
+            for (int i = 0; i < numRows; i++) {
+                for (int j = 0; j < numCols; j++) {
+                    if (matriz[i][j] % 2 == 0) {
+                        pares[i * numCols + j] = matriz[i][j];
+                        smt = smt + pares[i];
+                    }
+                }
+            }
+            System.out.println(smt);
+        }
+        
         
     }
 }
 
-        // variable boolean que vai determinar se soma os pares ou os impares
+// variable boolean que vai determinar se soma os pares ou os impares
 
-    
-    //funcao que vai receber os parametros(mt + boolean)
-    // True-> soma pares. False-> soma impares
-    //retorna soma
-
+// funcao que vai receber os parametros(mt + boolean)
+// True-> soma pares. False-> soma impares
+// retorna soma
